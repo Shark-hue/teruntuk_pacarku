@@ -1,6 +1,6 @@
 // --- BAGIAN A: TYPEWRITER EFFECT (Sama seperti sebelumnya) ---
 
-const customMessage = "Hai sayaaangku, kamuu jangan marah marah teruss yaa, kasian cowomu ini kalau kamu marah dia bingung gimana ngadepin kamuu:)";
+const customMessage = "Selamat Malam Sayaangku kamuu jangan marah marah teruss yaa, kasian cowomu ini kalau kamu marah dia bingung gimana ngadepin kamuu:)";
 const contentContainer = document.getElementById('content-container');
 // Pastikan warna teks typewriter sesuai dengan skema elegan hitam dan pink
 const styledMessage = `<p id="typewriter-text" style="font-size: 1.5em; color: var(--accent-pink); font-weight: bold;"></p>`;
@@ -57,3 +57,4 @@ function createHeart() {
 
 // Buat hati-hati secara berkala
 setInterval(createHeart, 500); // Setiap 0.5 detik, satu hati baru muncul
+
