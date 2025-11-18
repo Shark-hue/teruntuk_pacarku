@@ -1,51 +1,59 @@
+// --- BAGIAN A: TYPEWRITER EFFECT (Sama seperti sebelumnya) ---
 
-const customMessage = "hai sayaangku, kamuu jangan marah marah teruss yaa, kasian cowomu ini kalau kamu marah dia bingung gimana ngadepin kamuu:)";
-
-
+const customMessage = "Hai sayaaangku, kamuu jangan marah marah teruss yaa, kasian cowomu ini kalau kamu marah dia bingung gimana ngadepin kamuu:)";
 const contentContainer = document.getElementById('content-container');
-
-
-const styledMessage = `<p id="typewriter-text" style="font-size: 1.5em; color: var(--dark-pink); font-weight: bold;"></p>`;
-
-
+// Pastikan warna teks typewriter sesuai dengan skema elegan hitam dan pink
+const styledMessage = `<p id="typewriter-text" style="font-size: 1.5em; color: var(--accent-pink); font-weight: bold;"></p>`;
 contentContainer.innerHTML = styledMessage;
-
-// Dapatkan elemen P tempat teks akan diketik
 const typewriterTextElement = document.getElementById('typewriter-text');
 
-// --- FUNGSI TYPEWRITER EFFECT ---
 function typeWriter(text, i, fnCallback) {
-    // Jika masih ada karakter yang harus diketik
     if (i < text.length) {
-        // Tambahkan satu karakter ke elemen
         typewriterTextElement.innerHTML = text.substring(0, i + 1) + '<span class="cursor">|</span>';
-
-        // Panggil lagi fungsi ini setelah jeda (kecepatan ketikan)
         setTimeout(function() {
             typeWriter(text, i + 1, fnCallback);
-        }, 80); // Jeda 80 milidetik (Anda bisa mengubah angka ini)
+        }, 80);
     } else if (fnCallback) {
-        // Jika teks sudah selesai, panggil fungsi callback
-        typeWriterTextElement.innerHTML = text.substring(0, i) + '<span class="cursor"></span>';
+        typewriterTextElement.innerHTML = text.substring(0, i) + '<span class="cursor"></span>';
         fnCallback();
     }
 }
 
-// Mulai efek pengetikan
+// Mulai efek pengetikan segera setelah website dibuka
 typeWriter(customMessage, 0, function() {
-    console.log("Pengetikan selesai.");
+    console.log("Pengetikan pesan selesai.");
 });
 
 
-// B. MEMUTAR MUSIK SECARA OTOMATIS (Sama seperti sebelumnya, perlu interaksi pengguna)
-const musicPlayer = document.getElementById('background-music');
+// --- BAGIAN B: ANIMASI EMOTICON HATI ---
 
-document.addEventListener('click', function handler() {
-    musicPlayer.volume = 0.5;
-    musicPlayer.play().then(() => {
-        document.removeEventListener('click', handler);
-        console.log("Musik diputar setelah klik pertama pengguna.");
-    }).catch(error => {
-        console.log("Gagal memutar musik setelah klik:", error);
+const heartAnimationArea = document.getElementById('heart-animation-area');
+
+function createHeart() {
+    const heart = document.createElement('span');
+    heart.classList.add('heart');
+    heart.innerHTML = '💖'; // Emoticon hati
+
+    // Posisi acak di bagian bawah area animasi
+    const startX = Math.random() * (heartAnimationArea.offsetWidth - 30); // 30 adalah kira-kira lebar hati
+    heart.style.left = `${startX}px`;
+    heart.style.bottom = '-20px'; // Mulai dari bawah layar, sedikit di luar
+
+    // Jeda animasi acak untuk efek yang lebih alami
+    const animationDelay = Math.random() * 2; // Delay hingga 2 detik
+    heart.style.animationDelay = `${animationDelay}s`;
+
+    // Durasi animasi acak
+    const animationDuration = 4 + Math.random() * 3; // Durasi 4-7 detik
+    heart.style.animationDuration = `${animationDuration}s`;
+
+    heartAnimationArea.appendChild(heart);
+
+    // Hapus hati setelah animasinya selesai
+    heart.addEventListener('animationend', () => {
+        heart.remove();
     });
-});
+}
+
+// Buat hati-hati secara berkala
+setInterval(createHeart, 500); // Setiap 0.5 detik, satu hati baru muncul
