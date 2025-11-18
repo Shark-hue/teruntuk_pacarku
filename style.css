@@ -1,0 +1,122 @@
+/* Skema Warna: Hitam dan Pink Elegan */
+:root {
+    --primary-bg: #1a1a1a;   /* Hitam Pekat untuk latar belakang body */
+    --secondary-bg: #2c2c2c; /* Hitam Sedikit Lebih Terang untuk header/main */
+    --accent-pink: #ff69b4;  /* Hot Pink - Warna Aksen Utama */
+    --light-text: #f0f0f0;   /* Teks Cerah untuk kontras */
+    --shadow-color: #000000;
+}
+
+body {
+    /* Mengatur Font, margin, dan warna dasar */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-bg); 
+    color: var(--light-text); 
+    text-align: center;
+    line-height: 1.6; /* Kerapatan baris yang nyaman dibaca */
+}
+
+/* Header/Kepala Website */
+header {
+    background-color: var(--secondary-bg);
+    padding: 20px;
+    /* Bayangan elegan berwarna pink */
+    box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3); 
+    border-bottom: 3px solid var(--accent-pink); 
+}
+
+/* Judul Utama */
+h1 {
+    font-size: 2.5em;
+    color: var(--accent-pink); 
+    letter-spacing: 2px; /* Memberi kesan elegan */
+    margin: 0;
+    text-transform: uppercase; /* Judul kapital */
+}
+
+/* Konten Utama */
+main {
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: 40px auto;
+    background-color: var(--secondary-bg); 
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Kontainer Teks Mesin Ketik */
+#content-container {
+    padding: 30px;
+    border: 1px solid var(--accent-pink); 
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: #383838; /* Warna kontainer sedikit abu-abu gelap */
+}
+
+/* Teks yang diketik (diatur oleh JavaScript) */
+#typewriter-text {
+    color: var(--accent-pink) !important; /* Memastikan teks selalu pink */
+    display: inline-block;
+    padding: 5px 0;
+}
+
+/* Kursor Efek Mesin Ketik */
+.cursor {
+    display: inline-block;
+    color: var(--accent-pink);
+    margin-left: 2px;
+    font-weight: normal; /* Pastikan kursor tidak tebal */
+    font-size: 1.1em;
+    /* Animasi kedip (blink) */
+    animation: blink 0.75s step-end infinite; 
+}
+
+@keyframes blink {
+    from, to {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Footer/Kaki Website */
+footer {
+    padding: 15px;
+    background-color: var(--primary-bg);
+    border-top: 1px solid var(--secondary-bg);
+    color: #aaa;
+    font-size: 0.8em;
+}
+
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8em;
+        letter-spacing: 1px;
+    }
+
+    main {
+        margin: 20px auto;
+        padding: 20px 15px;
+    }
+
+    #content-container {
+        padding: 20px;
+    }
+}
+
+/* Untuk Ponsel dan layar yang sangat kecil */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em;
+        padding: 0 10px;
+    }
+
+    main {
+        margin: 10px auto;
+        border-radius: 0; /* Menghapus radius di layar kecil */
+    }
+}
